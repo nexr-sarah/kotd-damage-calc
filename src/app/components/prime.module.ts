@@ -15,6 +15,7 @@ import { TableModule } from 'primeng/table';
 import { InputTextModule } from 'primeng/inputtext';
 import { RippleModule } from 'primeng/ripple';
 import { ToastModule } from 'primeng/toast';
+import {BadgeModule} from 'primeng/badge';
 
 @NgModule({
   imports: [
@@ -33,6 +34,7 @@ import { ToastModule } from 'primeng/toast';
     RippleModule,
     TableModule,
     ToastModule,
+    BadgeModule,
   ],
   exports: [
     AutoCompleteModule,
@@ -48,6 +50,7 @@ import { ToastModule } from 'primeng/toast';
     RippleModule,
     TableModule,
     ToastModule,
+    BadgeModule,
   ],
 })
 export class PrimeModule {}
