@@ -1,0 +1,54 @@
+
+<div class="card">
+    <h5>Players</h5>
+    <p-table [value]="players" selectionMode="multiple" [(selection)]="selectedPlayers" dataKey="username"
+         [tableStyle]="{'min-width': '50rem'}" [scrollable]="true" scrollHeight="400px" [loading]="loading">
+        <ng-template pTemplate="header">
+            
+            <tr>
+                <th style="width: 4rem">
+                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                </th>
+                <th pSortableColumn="username" style="width:20%">Username <p-sortIcon field="username"></p-sortIcon></th>
+                <th>
+                    <p-columnFilter field="race" matchMode="equals" [showMenu]="false">
+                        <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                            <p-dropdown [ngModel]="value" [options]="races" (onChange)="filter($event.value)" placeholder="Any" [showClear]="true">
+                                <ng-template let-option pTemplate="item">
+                                    <span [class]="'customer-badge status-' + option.value">{{option}}</span>
+                                </ng-template>
+                            </p-dropdown>
+                        </ng-template>
+                    </p-columnFilter>
+                </th>
+                <th pSortableColumn="melee" style="width:20%">Melee <p-sortIcon field="melee"></p-sortIcon></th>
+                <th pSortableColumn="range" style="width:20%">Range <p-sortIcon field="range"></p-sortIcon></th>
+                <th pSortableColumn="magic" style="width:20%">Magic <p-sortIcon field="magic"></p-sortIcon></th>
+                <th pSortableColumn="lastHitDt" style="width:20%">Last Hit <p-sortIcon field="lastHitDt"></p-sortIcon></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-player>
+            <tr>
+                <td>
+                    <p-tableCheckbox [value]="player"></p-tableCheckbox>
+                </td>
+                <td>{{player.username}}</td>
+                <td>{{player.race}}</td>
+                <td>{{player.melee}}</td>
+                <td>{{player.range}}</td>
+                <td>{{player.magic}}</td>
+                <td>{{player.lastHitDt}}</td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td colspan="5">No players found.</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+<div class="selected-card" >
+    <app-player *ngFor="let p of selectedPlayers" [player]="p">
+        
+    </app-player>
+</div>

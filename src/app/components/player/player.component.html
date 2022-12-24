@@ -1,0 +1,14 @@
+<p-card header="{{player.username}}">
+    <p-dropdown [options]="weapons" [(ngModel)]="selectedWeapon" optionLabel="name" [filter]="true" filterBy="name" [showClear]="true" placeholder="Select a Weapon">
+        <ng-template pTemplate="selectedItem">
+            <div class="weapon-item weapon-item-value" *ngIf="selectedWeapon">
+                <div>{{selectedWeapon.name}}</div>
+            </div>
+        </ng-template>
+        <ng-template let-weapon pTemplate="item">
+            <div class="weapon-item">
+                <div>{{weapon.typeIcon}}{{weapon.ID}} - {{weapon.name}}</div>
+            </div>
+        </ng-template>
+    </p-dropdown>
+</p-card>

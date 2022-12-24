@@ -1,0 +1,16 @@
+:host ::ng-deep .p-dropdown {
+    width: 14rem;
+}
+
+.selected-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    overflow: auto;
+    
+}
+.weapon-item-value {
+    img.flag {
+        width: 17px;
+    }
+}
